@@ -29,7 +29,11 @@ export default function App() {
 
   const formHandler = (event) => {
     event.preventDefault();
-    setFormData(true);
+    if (toppings.length === 0) {
+      alert("Please select one or more topping.");
+    } else {
+      setFormData(true);
+    }
   };
   return (
     <main>
@@ -58,7 +62,6 @@ export default function App() {
         <br />
         <label>Choose Toppings: </label>
         <br />
-
         <label>
           <input type="checkbox" value="Pepperoni" onChange={toppingsHandler} />
           Pepperoni
